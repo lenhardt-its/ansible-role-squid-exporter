@@ -1,0 +1,6 @@
+---
+- name: restart squid_exporter
+  systemd:
+    daemon_reload: true
+    name: squid_exporter
+    state: restarted

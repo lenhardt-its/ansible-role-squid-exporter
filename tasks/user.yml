@@ -1,0 +1,16 @@
+---
+- name: create system group
+  group:
+    name: "{{ squid_exporter_system_group }}"
+    system: true
+    state: present
+  when: squid_exporter_system_group != "root"
+
+- name: create system user
+  user:
+    name: "{{ squid_exporter_system_user }}"
+    system: true
+    shell: "/sbin/nologin"
+    group: "{{ squid_exporter_system_group }}"
+    createhome: false
+  when: squid_exporter_system_user != "root"

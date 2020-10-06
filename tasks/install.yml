@@ -1,0 +1,10 @@
+---
+- name: squid_exporter binary
+  copy:
+    src: "{{ role_path }}/files/squid_exporter_v{{ squid_exporter_version }}_{{ go_arch }}"
+    dest: "/usr/local/bin/squid_exporter"
+    mode: 0755
+    owner: root
+    group: root
+  notify: restart squid_exporter
+  when: not ansible_check_mode

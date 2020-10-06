@@ -1,0 +1,5 @@
+---
+- name: check if squid_exporter is installed
+  stat:
+    path: "/usr/local/bin/squid_exporter"
+  register: __squid_exporter_is_installed
