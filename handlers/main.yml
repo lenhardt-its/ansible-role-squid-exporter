@@ -4,3 +4,27 @@
     daemon_reload: true
     name: squid_exporter
     state: restarted
+  tags: squid_exporter
+  become: true
+
+- name: reload squid_exporter
+  systemd:
+    daemon_reload: true
+    name: squid_exporter
+    state: restarted
+  tags: squid_exporter
+  become: true
+
+- name: reload ufw
+  systemd:
+    name: ufw
+    state: reloaded
+  tags: vmware_exporter
+  become: true
+
+- name: reload firewalld
+  systemd:
+    name: firewalld
+    state: reloaded
+  tags: vmware_exporter
+  become: true
