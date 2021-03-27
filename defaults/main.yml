@@ -6,3 +6,4 @@ squid_exporter_binary_local_dir: /usr/local/bin
 squid_exporter_system_user: "{{ prometheus_user | default('prometheus') }}"
 squid_exporter_system_group: "{{ prometheus_group | default('prometheus') }}"
 squid_exporter_log_level: info
+squid_exporter_allow_firewall: false
