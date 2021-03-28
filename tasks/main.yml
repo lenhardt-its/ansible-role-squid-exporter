@@ -111,7 +111,9 @@
     port: "{{ squid_exporter_web_listen_port }}"
     proto: tcp
     state: enabled
-    comment: "squid_exporter"
+    comment: "Squid Exporter"
+  changed_when: False
+  ignore_errors: True
   notify: reload ufw
   become: true
   tags: squid_exporter
@@ -125,6 +127,8 @@
     port: "{{ squid_exporter_web_listen_port }}/tcp"
     permanent: yes
     state: true
+  changed_when: False
+  ignore_errors: True
   when:
     - "'running' in _firewalld_status.stdout"
     - squid_exporter_allow_firewall
